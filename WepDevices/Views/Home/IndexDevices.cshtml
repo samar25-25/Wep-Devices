@@ -1,0 +1,194 @@
+﻿
+@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "IndexDevices";
+}
+
+<h2>Show All Devices Properties </h2>
+
+<table class="table">
+    <tr>
+       <th>device name
+        
+        </th> 
+       
+      
+           <th>Serial No</th>
+         
+   
+      <th>Aquastion Date</th>  
+   
+   
+        <th>Memo</th>
+        
+  
+   
+       <th>
+           Device Category
+       </th>
+        <th>
+            Properties
+        </th>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+        
+        
+     
+
+    @foreach (var item in ViewData["jointables"] as IEnumerable<WepDevices.Models.MultipleClass>)
+    {
+        <tr>
+          <td>@item.devicedetails.Name</td>  
+                
+              
+            
+              <td> @item.devicedetails.SerialNo</td> 
+            <td>@item.devicedetails.Aqusationdate</td>
+           
+           
+              <td>@item.devicedetails.Memo</td> 
+             
+            <td>@item.categorydetails.Name   </td>
+            
+             <td>
+            <table>
+                <tr>
+                    <th>
+
+                        @if (@item.devicedetails.Property.Processor == null)
+                        { <div></div>}
+                        else
+                        { <div>Processor:</div>  }
+                       
+
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.IPAddress == null)
+                        { <div></div>}
+                        else
+                        { <div> IP Address:</div>  }
+                       
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.Dimension == null)
+                        { <div></div>}
+                        else
+                        { <div> Dimension:</div>  }
+
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.MACAddress == null)
+                        { <div></div>}
+                        else
+                        { <div>MAC Address</div>  }
+
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.HD == null)
+                        { <div></div>}
+                        else
+                        { <div>HD</div>  }
+
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.AllowUsb == null)
+                        { <div></div>}
+                        else
+                        { <div> Allow USB</div>  }
+
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.NetWorkSpeed == null)
+                        { <div> </div>}
+                        else
+                        { <div> NetWork Speed</div>  }
+
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.OperatingSystem == null)
+                        { <div></div>}
+                        else
+                        { <div>Operating System:</div>  }
+
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.ports == null)
+                        { <div></div>}
+                        else
+                        { <div> Ports</div>  }
+
+                    </th>
+                    <th>
+                        @if (@item.devicedetails.Property.User_Id == null)
+                        { <div></div>}
+                        else
+                        { <div> Current User</div>  }
+
+                    </th>
+                 
+                <tr>
+                    
+                    <td>
+                       
+                        @item.devicedetails.Property.Processor 
+                       
+                    </td>
+                    <td>
+                        @item.devicedetails.Property.IPAddress
+                    </td>
+                    <td>
+
+                        @item.devicedetails.Property.Dimension
+
+                    </td>
+                    <td>
+                        @item.devicedetails.Property.MACAddress
+                    </td>
+                    <td>
+
+                        @item.devicedetails.Property.HD
+
+                    </td>
+                    <td>
+                        @item.devicedetails.Property.AllowUsb
+                    </td>
+                    <td>
+
+                        @item.devicedetails.Property.NetWorkSpeed
+
+                    </td>
+                    <td>
+                        @item.devicedetails.Property.OperatingSystem
+                    </td>
+                    <td>
+
+                        @item.devicedetails.Property.ports
+
+                    </td>
+                    <td>
+                      @*@item.devicedetails.Property.AspNetUser.Email*@
+@item.devicedetails.Property.User_Id
+                         
+                     
+
+                    </td>
+                    
+                </tr>
+            </table>
+           
+             </td>
+                
+            
+                   
+
+
+
+            
+           
+            @*<td> @item.properties.DeviceNameProperty</td>*@
+        </tr>
+    }
+</table>

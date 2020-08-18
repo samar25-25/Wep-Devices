@@ -1,0 +1,39 @@
+﻿@model IEnumerable< WepDevices.Models.MultipleClass>
+
+@{
+    ViewBag.Title = "DeviceIndex";
+}
+
+<h2>DeviceIndex</h2>
+<table class="table">
+    <tr>
+        <td>
+            Device Name
+        </td>
+        <td>
+            Categories
+        </td>
+    <td>
+        properties
+    </td>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+          <td>@item.devicedetails.Name
+            <table>
+                <tr> <td> properties</td></tr>
+                <tr> @*@item.properties.DeviceNameProperty<*@/tr>
+            </table>
+            </td> 
+
+            <td>@item.categorydetails.Name</td>
+          @*<td> @item.properties.DeviceNameProperty</td>*@
+        </tr>
+
+    }
+</table>
+
+
